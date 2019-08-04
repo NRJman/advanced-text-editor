@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "draft": {
+    "advanced-text-editor": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/draft",
+            "outputPath": "dist/advanced-text-editor",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "draft:build"
+            "browserTarget": "advanced-text-editor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "draft:build:production"
+              "browserTarget": "advanced-text-editor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "draft:build"
+            "browserTarget": "advanced-text-editor:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "draft-e2e": {
+    "advanced-text-editor-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "draft:serve"
+            "devServerTarget": "advanced-text-editor:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "draft:serve:production"
+              "devServerTarget": "advanced-text-editor:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "draft"
+  "defaultProject": "advanced-text-editor"
 }

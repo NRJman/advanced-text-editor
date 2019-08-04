@@ -1,0 +1,50 @@
+.editing-controllers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+        margin: 0 .1rem;
+        text-transform: uppercase;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+.buttons-container {
+    margin: .2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bold-controller {
+    font-weight: bold;
+}
+
+.italic-controller {
+    font-style: italic;
+}
+
+.underline-controller {
+    text-decoration: underline;
+}
+
+.form-wrapper {
+    width: 60%;
+    margin: auto; 
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}

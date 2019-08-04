@@ -1,0 +1,13 @@
+.editable-textarea {
+    width: 50%;
+    height: 10rem;
+    margin: 1rem auto 0;
+    padding: .5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: auto;
+
+    &:focus {
+        outline: 0;
+    }
+}
