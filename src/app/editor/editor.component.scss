@@ -47,7 +47,6 @@ button {
     width: 2.7rem;
     text-transform: uppercase;
 
-
     &.bold {
         font-weight: bold;
     }
@@ -64,6 +63,10 @@ button {
 .form-wrapper {
     width: 60%;
     margin: auto; 
+}
+
+.editable-textarea-wrapper {
+    font-size: 1.2rem;
 }
 
 .bold {

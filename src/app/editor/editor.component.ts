@@ -84,19 +84,6 @@ export class EditorComponent extends UnsubscriberService implements OnInit, OnDe
   }
 
   public handleStoreSelections(): void {
-    this.store.select('synonyms')
-      .pipe(
-        takeUntil(this.subscriptionController$$)
-      )
-      .subscribe((state: fromSynonyms.State) => {
-        this.synonymsState = {
-          ...state,
-          synonyms: state.synonyms.slice(0, 30)
-        };
-
-        this.synonymsErrorMessage = state.errorMessage;
-      });
-
     this.store.select(fromEditorSelectors.getSelectedElements)
       .pipe(
         takeUntil(this.subscriptionController$$)

@@ -6,7 +6,7 @@
     </div>
 
     <form [formGroup]="editorForm" (ngSubmit)="onEditorFormSubmit()">
-      <app-editable-textarea formControlName="textArea" #editableTextarea></app-editable-textarea>
+      <app-editable-textarea class="editable-textarea-wrapper" formControlName="textArea" #editableTextarea></app-editable-textarea>
       
       <div class="extraction-controllers">
         <button class="extraction-controller" type="submit">Get current textarea value</button>
@@ -15,7 +15,9 @@
     </form>
     
     <div class="current-textarea-value-container">
-      <h3>Current textarea value:</h3>
-      <div class="current-textarea-value">{{ textareaState$ | async }}</div>
+      <ng-container *ngIf="(textareaState$ | async) as textareaValue">
+        <h3>Current textarea value:</h3>
+        <div class="current-textarea-value">{{ textareaValue }}</div>
+      </ng-container>
     </div>
 </div>

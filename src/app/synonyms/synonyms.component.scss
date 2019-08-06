@@ -1,0 +1,24 @@
+.synonyms-container {
+    width: 60%;
+    margin: 1rem auto; 
+}
+
+.synonyms {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+}
+
+.synonym-item {
+    padding: .4rem .5rem;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 2px;
+    overflow: auto;
+    background-color: #242424;
+    cursor: default;
+    margin: .3rem .5rem .3rem 0;
+}

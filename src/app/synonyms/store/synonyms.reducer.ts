@@ -10,7 +10,7 @@ export interface State {
 
 export const initialState: State = {
     searchKey: '',
-    synonyms: [],
+    synonyms: null,
     errorMessage: ''
 };
 
@@ -26,7 +26,7 @@ export function synonymsReducer(synonymsState: State | undefined, synonymsAction
         on(fromSynonymsActions.failSynonymsUpdating, (state, action) => ({
             ...state,
             searchKey: action.searchKey,
-            synonyms: [],
+            synonyms: null,
             errorMessage: state.errorMessage
         })),
     )(synonymsState, synonymsAction);
