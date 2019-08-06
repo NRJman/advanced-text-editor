@@ -1,40 +1,21 @@
 <div class="form-wrapper">
     <div class="editing-controllers">
-      <button class="bold-controller" (click)="toggleClassOnSelectedElements('bold')">b</button>
-      <button class="italic-controller" (click)="toggleClassOnSelectedElements('italic')">i</button>
-      <button class="underline-controller" (click)="toggleClassOnSelectedElements('underline')">u</button>
+      <button class="editing-controller bold" (click)="toggleClassOnSelectedElements('bold')">b</button>
+      <button class="editing-controller italic" (click)="toggleClassOnSelectedElements('italic')">i</button>
+      <button class="editing-controller underline" (click)="toggleClassOnSelectedElements('underline')">u</button>
     </div>
 
     <form [formGroup]="editorForm" (ngSubmit)="onEditorFormSubmit()">
       <app-editable-textarea formControlName="textArea" #editableTextarea></app-editable-textarea>
       
-      <div class="buttons-container">
-        <button type="submit">Get current textarea value</button>
-        <button type="button" (click)="updateSynonymsState()">Get synonyms</button>
+      <div class="extraction-controllers">
+        <button class="extraction-controller" type="submit">Get current textarea value</button>
+        <button class="extraction-controller" type="button" (click)="updateSynonymsState()">Get synonyms</button>
       </div>
     </form>
+    
+    <div class="current-textarea-value-container">
+      <h3>Current textarea value:</h3>
+      <div class="current-textarea-value">{{ textareaState$ | async }}</div>
+    </div>
 </div>
-
-<div class="current-textarea-value-container">
-  <h3>Current textarea value:</h3>
-  <div class="current-textarea-value">{{ textareaState$ | async }}</div>
-</div>
-
-
-<div class="synonyms-container" *ngIf="synonymsState.synonyms.length > 0; else noResults" >
-  <h3>Possible synonyms:</h3>
-
-  <div>Search key: {{ synonymsState.searchKey }}</div>
-  
-  <ul class="synonyms">
-    <li *ngFor="let synonym of synonymsState.synonyms">{{ synonym.word }}</li>
-  </ul>
-</div>
-
-<ng-template #noResults>
-  <div class="no-results-message" *ngIf="!synonymsErrorMessage">Sorry, no any synonyms found :(</div>
-
-  <div class="error-message" *ngIf="synonymsErrorMessage">{{ synonymsErrorMessage }}</div>
-</ng-template>
-
-<div class="error-message"></div>

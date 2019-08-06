@@ -7,12 +7,14 @@ import { EditorComponent } from './editor/editor.component';
 import { EditableTextareaComponent } from './editor/editable-textarea/editable-textarea.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { SynonymsComponent } from './synonyms/synonyms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditorComponent,
-    EditableTextareaComponent
+    EditableTextareaComponent,
+    SynonymsComponent
   ],
   imports: [
     BrowserModule,

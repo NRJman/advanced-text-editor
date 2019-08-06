@@ -1,35 +1,64 @@
 .editing-controllers {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
 
-    button {
-        margin: 0 .1rem;
-        text-transform: uppercase;
-    }
 }
 
 button {
     cursor: pointer;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 2px;
+    overflow: auto;
+    background-color: #242424;
+    transition: background-color .5s ease-out, color .3s ease-out;
+    color: #a6a6a6;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        color: #afafaf;
+        background-color: #372f2f;
+    }
+
+    &:active {
+        color: rgba(175, 175, 175, .6);
+        background-color: rgba(69, 59, 59, .6);
+    }
 }
 
-.buttons-container {
-    margin: .2rem;
+.extraction-controllers {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
 }
 
-.bold-controller {
-    font-weight: bold;
+.extraction-controller {
+    margin: 0 .5rem 0 0;
+    padding: .5rem .7rem;
 }
 
-.italic-controller {
-    font-style: italic;
-}
+.editing-controller {
+    margin: 0 .4rem 0 0;
+    width: 2.7rem;
+    text-transform: uppercase;
 
-.underline-controller {
-    text-decoration: underline;
+
+    &.bold {
+        font-weight: bold;
+    }
+
+    &.italic {
+        font-style: italic;
+    }
+
+    &.underline {
+        text-decoration: underline;
+    }
 }
 
 .form-wrapper {

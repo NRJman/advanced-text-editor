@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SelectionChangeListenerDirective } from './directives/selection-change-listener.directive';
+import { ToggleFocusStylesDirective } from './directives/toggle-focus-styles.directive';
 
 @NgModule({
   declarations: [
-    SelectionChangeListenerDirective
+    SelectionChangeListenerDirective,
+    ToggleFocusStylesDirective
   ],
   imports: [
     CommonModule
@@ -13,7 +15,8 @@ import { SelectionChangeListenerDirective } from './directives/selection-change-
   exports: [
     ReactiveFormsModule,
     FormsModule,
-    SelectionChangeListenerDirective
+    SelectionChangeListenerDirective,
+    ToggleFocusStylesDirective
   ]
 })
 export class SharedModule { }

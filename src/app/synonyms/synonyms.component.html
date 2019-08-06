@@ -1,0 +1,17 @@
+<div class="synonyms-container" *ngIf="synonymsState.synonyms.length > 0; else noResults">
+  <h3>Possible synonyms:</h3>
+
+  <div>Search key: {{ synonymsState.searchKey }}</div>
+
+  <ul class="synonyms">
+    <li *ngFor="let synonym of synonymsState.synonyms">{{ synonym.word }}</li>
+  </ul>
+</div>
+
+<ng-template #noResults>
+  <div class="no-results-message" *ngIf="!synonymsErrorMessage">Sorry, no any synonyms found :(</div>
+
+  <div class="error-message" *ngIf="synonymsErrorMessage">{{ synonymsErrorMessage }}</div>
+</ng-template>
+
+<div class="error-message"></div>

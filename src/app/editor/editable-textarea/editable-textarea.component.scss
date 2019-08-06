@@ -1,13 +1,19 @@
 .editable-textarea {
-    width: 50%;
-    height: 10rem;
-    margin: 1rem auto 0;
-    padding: .5rem;
+    height: 15rem;
+    margin: 1rem auto;
+    padding: .8rem .5rem;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: auto;
+    background-color: #242424;
+    transition: background-color .5s ease-out, transform .5s ease-out;
 
     &:focus {
         outline: 0;
     }
+}
+
+.focused {
+    background-color: #372f2f;
+    transform: scale(1.05);
 }
