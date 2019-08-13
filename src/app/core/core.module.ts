@@ -7,9 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { SynonymsEffects } from '../synonyms/store/synonyms.effects';
 import { EditorService } from '../editor/editor.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,10 +17,14 @@ import { EditorService } from '../editor/editor.service';
     EffectsModule.forRoot([SynonymsEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 15
-    })
+    }),
+    MatProgressSpinnerModule
   ],
   providers: [
     EditorService
+  ],
+  exports: [
+    MatProgressSpinnerModule
   ]
 })
 export class CoreModule { }

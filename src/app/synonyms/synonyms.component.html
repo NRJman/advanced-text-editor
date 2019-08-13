@@ -1,22 +1,28 @@
-<div class="synonyms-container">
-  <ng-container *ngIf="synonymsState.synonyms as synonymsList">
-    <ng-container *ngIf="synonymsList.length > 0; else emptySynonymsListCase">
-      <h3>Possible synonyms:</h3>
-      
-      <div><b>Search key:</b> {{ synonymsState.searchKey }}</div>
-      
-      <ul class="synonyms">
-        <li class="synonym-item" *ngFor="let synonym of synonymsList">{{ synonym.word }}</li>
-      </ul>
-    </ng-container>
-  </ng-container>
+<mat-spinner *ngIf="synonymsState.areSynonymsInProgress; else synonymsContainer" style="margin: 1rem auto;" color="warn"
+  [diameter]="50"></mat-spinner>
 
-  <ng-template #emptySynonymsListCase>
-    <ng-container *ngIf="!synonymsErrorMessage">
-      <div><b>Search key:</b> {{ synonymsState.searchKey }}</div>
-      <div class="no-results-message">Sorry, no any synonyms found :(</div>
+
+<ng-template #synonymsContainer>
+  <div class="synonyms-container">
+    <ng-container *ngIf="synonymsState.synonyms as synonymsList">
+      <ng-container *ngIf="synonymsList.length > 0; else emptySynonymsListCase">
+        <h3>Possible synonyms:</h3>
+        
+        <div><b>Last search key:</b> {{ synonymsState.searchKey }}</div>
+        
+        <ul class="synonyms">
+          <li class="synonym-item" *ngFor="let synonym of synonymsList">{{ synonym.word }}</li>
+        </ul>
+      </ng-container>
     </ng-container>
-  </ng-template>
   
-  <div class="error-message" *ngIf="synonymsErrorMessage">{{ synonymsErrorMessage }}</div>
-</div>
+    <ng-template #emptySynonymsListCase>
+      <ng-container *ngIf="!synonymsErrorMessage">
+        <div><b>Last search key:</b> {{ synonymsState.searchKey }}</div>
+        <div class="no-results-message">Sorry, no any synonyms found :(</div>
+      </ng-container>
+    </ng-template>
+    
+    <div class="error-message" *ngIf="synonymsErrorMessage">{{ synonymsErrorMessage }}</div>
+  </div>
+</ng-template>
