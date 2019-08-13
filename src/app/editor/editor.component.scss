@@ -1,8 +1,7 @@
 .editing-controllers {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-
+    justify-content: flex-start;
 }
 
 button {
@@ -29,12 +28,19 @@ button {
         color: rgba(175, 175, 175, .6);
         background-color: rgba(69, 59, 59, .6);
     }
+
+    &[disabled] {
+        background-color: #242424;
+        color: #a6a6a6;
+        cursor: default;
+        opacity: .5;
+    }
 }
 
 .extraction-controllers {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .extraction-controller {
@@ -79,4 +85,45 @@ button {
 
 .underline {
     text-decoration: underline;
+}
+
+.current-textarea-value {
+    word-break: break-word;
+}
+
+@media (max-width: 1365px) {
+    .form-wrapper {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1279px) {
+    .form-wrapper {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .form-wrapper {
+        width: 85%;
+    }
+}
+
+@media (max-width: 450px) {
+    .form-wrapper {
+        width: 95%;
+    }
+
+    .extraction-controllers {
+        justify-content: space-between;
+    }
+
+    .extraction-controller {
+        width: 48%;
+        margin: 0;
+    }
+
+    button, .editable-textarea-wrapper  {
+        font-size: 1rem;
+    }
 }

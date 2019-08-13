@@ -9,14 +9,14 @@
       <app-editable-textarea class="editable-textarea-wrapper" formControlName="textArea" #editableTextarea></app-editable-textarea>
       
       <div class="extraction-controllers">
-        <button class="extraction-controller" type="submit">Get current textarea value</button>
-        <button class="extraction-controller" type="button" (click)="updateSynonymsState()">Get synonyms</button>
+        <button class="extraction-controller" type="submit" [disabled]="editorForm.invalid">Get current textarea value</button>
+        <button class="extraction-controller" type="button" (click)="updateSynonymsState()" [disabled]="!(selectedElements.length > 1)">Get synonyms</button>
       </div>
     </form>
     
     <div class="current-textarea-value-container">
       <ng-container *ngIf="(textareaState$ | async) as textareaValue">
-        <h3>Current textarea value:</h3>
+        <h3>Last textarea value:</h3>
         <div class="current-textarea-value">{{ textareaValue }}</div>
       </ng-container>
     </div>

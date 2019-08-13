@@ -28,7 +28,7 @@ export class SynonymsEffects {
                 })
                 .pipe(
                     switchMap((value: Synonym[]) => {
-                        return of (fromSynonymsActions.finishSynonymsUpdating({
+                        return of(fromSynonymsActions.finishSynonymsUpdating({
                             searchKey,
                             synonyms: value
                         }));

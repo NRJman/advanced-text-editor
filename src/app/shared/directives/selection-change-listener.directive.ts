@@ -22,12 +22,14 @@ export class SelectionChangeListenerDirective {
     private onSelectionChange(event: Event): void {
         if (isPlatformBrowser(this.platformId) && window.getSelection().getRangeAt) {
             const startElement: HTMLElement = window.getSelection().getRangeAt(0).startContainer.parentElement;
+            let selectedElements: Node[];
 
-            if (this.isElementDescendant(this.hostElement, startElement)) {
-                const selectedElements: Node[] = this.editorService.getSelectedElements(this.elementRef.nativeElement.parentElement);
-
-                this.store.dispatch(fromEditorActions.selectText({ selectedElements }));
+            if (!this.isElementDescendant(this.hostElement, startElement)) {
+                return;
             }
+
+            selectedElements = this.editorService.getSelectedElements(this.elementRef.nativeElement.parentElement);
+            this.store.dispatch(fromEditorActions.selectText({ selectedElements }));
         }
     }
 

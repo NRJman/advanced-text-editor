@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as fromApp from './../store/app.reducers';
 import * as fromEditorActions from './store/editor.actions';
 import * as fromEditorSelectors from './store/editor.selectors';
@@ -43,9 +43,8 @@ export class EditorComponent extends UnsubscriberService implements OnInit, OnDe
   public updateSynonymsState(): void {
     if (isPlatformBrowser(this.platformId) && window.getSelection().getRangeAt) {
       const stringToSearchSynonymsFor = this.editorService.getSelectedText(this.textarea.nativeElement);
-      const selectedElements: Node[] = this.editorService.getSelectedElements(this.textarea.nativeElement);
 
-      this.store.dispatch(fromEditorActions.selectText({ selectedElements }));
+      this.store.dispatch(fromEditorActions.selectText({ selectedElements: this.selectedElements }));
 
       if (stringToSearchSynonymsFor.length > 1) {
         this.store.dispatch(fromSynonymsActions.startSynonymsUpdating({ stringToSearchSynonymsFor }));
@@ -97,7 +96,7 @@ export class EditorComponent extends UnsubscriberService implements OnInit, OnDe
 
   ngOnInit() {
     this.editorForm = this.fb.group({
-      textArea: ['']
+      textArea: ['', [Validators.required]]
     });
 
     this.handleStoreSelections();

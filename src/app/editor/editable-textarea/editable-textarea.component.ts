@@ -1,6 +1,9 @@
 import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { EditableTextareaService, ProcessNodeReturnType } from './editable-textarea-service';
+import * as fromApp from 'src/app/store/app.reducers';
+import { Store } from '@ngrx/store';
+import * as fromEditorActions from './../store/editor.actions';
 
 type TextareaCallbackFunction = (text: string) => void;
 
@@ -28,7 +31,11 @@ export class EditableTextareaComponent implements ControlValueAccessor {
   @ViewChild('editableTextarea') private textarea: ElementRef;
   private onChange: TextareaCallbackFunction;
 
-  constructor(private renderer: Renderer2, private editableTextareaService: EditableTextareaService) { }
+  constructor(
+    private renderer: Renderer2,
+    private editableTextareaService: EditableTextareaService,
+    private store: Store<fromApp.State>
+  ) { }
 
   public writeValue(value: string): void {
     this.renderer.setProperty(this.textarea.nativeElement, 'value', value);
@@ -62,6 +69,7 @@ export class EditableTextareaComponent implements ControlValueAccessor {
       return;
     }
 
+    self.store.dispatch(fromEditorActions.selectText({ selectedElements: [] }));
     childNodes.forEach(node => node.remove());
 
     function handlingFn(nodeToBeProcessed: ChildNode): void {

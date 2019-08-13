@@ -1,6 +1,6 @@
 .synonyms-container {
     width: 60%;
-    margin: 1rem auto; 
+    margin: 1.2rem auto; 
 }
 
 .synonyms {
@@ -21,4 +21,32 @@
     background-color: #242424;
     cursor: default;
     margin: .3rem .5rem .3rem 0;
+}
+
+.no-results-message {
+    margin-top: 1rem;
+}
+
+@media (max-width: 1365px) {
+    .synonyms-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1279px) {
+    .synonyms-container {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .synonyms-container {
+        width: 85%;
+    }
+}
+
+@media (max-width: 450px) {
+    .synonyms-container {
+        width: 95%;
+    }
 }
