@@ -1,5 +1,6 @@
 .editable-textarea {
-    height: 15rem;
+    min-height: 15rem;
+    max-height: 20rem;
     margin: 1rem auto;
     padding: .8rem .5rem;
     border: 1px solid black;
