@@ -7,10 +7,11 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 import { Synonym } from 'src/app/shared/models/synonym.model';
 import { of } from 'rxjs';
+import { SynonymsService } from '../synonyms.service';
 
 @Injectable()
 export class SynonymsEffects {
-    constructor(private actions$: Actions, private httpClient: HttpClient) { }
+    constructor(private actions$: Actions, private synonymsService: SynonymsService) { }
 
     startSynonymsUpdating$ = createEffect(() =>
         this.actions$.pipe(
@@ -21,12 +22,7 @@ export class SynonymsEffects {
                     .join('+');
             }),
             switchMap((searchKey: string) => {
-                return this.httpClient.get('https://api.datamuse.com/words', {
-                    params: {
-                        ml: searchKey
-                    }
-                })
-                .pipe(
+                return this.synonymsService.getSynonyms(searchKey).pipe(
                     switchMap((value: Synonym[]) => {
                         return of(fromSynonymsActions.finishSynonymsUpdating({
                             searchKey,

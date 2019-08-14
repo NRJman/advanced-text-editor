@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SynonymsEffects } from '../synonyms/store/synonyms.effects';
 import { EditorService } from '../editor/editor.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SynonymsService } from '../synonyms/synonyms.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   providers: [
-    EditorService
+    EditorService,
+    SynonymsService
   ],
   exports: [
     MatProgressSpinnerModule
