@@ -1,10 +1,7 @@
-import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as fromSynonymsActions from './synonyms.actions';
-import { startSynonymsUpdating } from './synonyms.actions';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { Action } from '@ngrx/store';
 import { Synonym } from 'src/app/shared/models/synonym.model';
 import { of } from 'rxjs';
 import { SynonymsService } from '../synonyms.service';
