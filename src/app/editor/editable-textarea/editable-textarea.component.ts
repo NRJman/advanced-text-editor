@@ -28,7 +28,7 @@ interface PresentProcessResultToDomParams {
   ]
 })
 export class EditableTextareaComponent implements ControlValueAccessor {
-  @ViewChild('editableTextarea') private textarea: ElementRef;
+  @ViewChild('editableTextarea', { static: true }) private textarea: ElementRef;
   private onChange: TextareaCallbackFunction;
 
   constructor(
