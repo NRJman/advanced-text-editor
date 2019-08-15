@@ -7,14 +7,16 @@ import { Observable, throwError } from 'rxjs';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { hot, cold } from 'jasmine-marbles';
 import { SynonymsEffects } from './synonyms.effects';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SynonymsEffects', () => {
     let actions$: Observable<Action>;
     let synonymsService: SynonymsService;
     let effects: SynonymsEffects;
-    let mockHttpResponse: Synonym[] | Error;
+    const mockHttpResponse: Synonym[] = [
+        { word: 'conversation', score: 1, tags: ['a'] },
+        { word: 'talk', score: 2, tags: ['b'] }
+    ];
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -33,10 +35,6 @@ describe('SynonymsEffects', () => {
     });
 
     it('should call FINISH_SYNONYMS_UPDATING action if response is successful', () => {
-        mockHttpResponse = [
-            { word: 'conversation', score: 1, tags: ['a'] },
-            { word: 'talk', score: 2, tags: ['b'] }
-        ];
         const stringToSearchSynonymsFor = 'speech';
         const action: Action = fromSynonymsActions.startSynonymsUpdating({ stringToSearchSynonymsFor });
         const completion: Action = fromSynonymsActions.finishSynonymsUpdating({
