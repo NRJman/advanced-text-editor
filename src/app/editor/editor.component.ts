@@ -24,7 +24,7 @@ export class EditorComponent extends UnsubscriberService implements OnInit, OnDe
   public synonymsErrorMessage: string;
   public selectedElements: Node[];
 
-  @ViewChild('editableTextarea', { read: ElementRef }) private textarea: ElementRef;
+  @ViewChild('editableTextarea', { read: ElementRef, static: false }) private textarea: ElementRef;
 
   constructor(
     private fb: FormBuilder,
