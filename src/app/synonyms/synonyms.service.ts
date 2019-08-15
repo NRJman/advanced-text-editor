@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Synonym } from '../shared/models/synonym.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class SynonymsService {
     constructor(private http: HttpClient) { }
 
