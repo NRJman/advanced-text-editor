@@ -5,3 +5,7 @@ An app that allows to apply bold, italic or underline styles to the text that wa
 ## How to run
 
 Use [this link](https://NRJman.github.io/advanced-text-editor) to run the app.
+
+## License
+
+There is no any license for it. You can use any data from this repo if you want so :)
